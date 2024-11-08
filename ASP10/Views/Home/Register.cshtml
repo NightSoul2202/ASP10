@@ -1,0 +1,42 @@
+﻿@model FormInfo
+
+
+@{
+    ViewBag.Title = "Реєстрація на консультацію";
+}
+
+<h2>Реєстрація на консультацію</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.DateTime)
+        @Html.TextBoxFor(m => m.DateTime, new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(m => m.DateTime)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Product)
+        @Html.DropDownListFor(m => m.Product, new SelectList(ViewBag.ProductList), "Оберіть продукт", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Product)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Зареєструватись</button>
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+<script src="~/lib/jquery/jquery.min.js"></script>
+<script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
